@@ -1,5 +1,6 @@
 name = "monozukuri-subsidy-ai"
 compatibility_date = "2023-01-01"
+main = "workers-site/index.js"
 
 [site]
 bucket = "./"
