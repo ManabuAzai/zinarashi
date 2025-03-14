@@ -1,0 +1,5 @@
+name = "monozukuri-subsidy-ai"
+compatibility_date = "2023-01-01"
+
+[site]
+bucket = "./"
