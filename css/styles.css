@@ -3,6 +3,7 @@
     --color-primary: #000000;
     --color-secondary: #6d9eeb;
     --color-accent: #6d9eeb;
+    --color-cta: #ff6b4a;
     --color-light: #F5F5F5;
     --color-white: #FFFFFF;
     --font-family: 'Noto Sans JP', sans-serif;
@@ -62,7 +63,7 @@ ul {
 
 .cta-button {
     display: inline-block;
-    background-color: var(--color-secondary); /* Changed from green to blue */
+    background-color: var(--color-cta); /* Changed to orange */
     color: var(--color-white);
     padding: 12px 24px;
     border-radius: 4px;
@@ -72,7 +73,7 @@ ul {
 }
 
 .cta-button:hover {
-    background-color: #5a85d6; /* Darker blue for hover */
+    background-color: #e55a3a; /* Darker orange for hover */
     transform: translateY(-2px);
     box-shadow: var(--box-shadow);
 }
@@ -380,23 +381,23 @@ ul {
 }
 
 .chevron-blue-1 {
-    background-color: #6d9eeb;
+    background-color: #3366cc;
 }
 
 .chevron-blue-2 {
-    background-color: #7ba8ee;
+    background-color: #4477dd;
 }
 
 .chevron-blue-3 {
-    background-color: #89b2f1;
+    background-color: #5588ee;
 }
 
 .chevron-blue-4 {
-    background-color: #97bcf4;
+    background-color: #6699ff;
 }
 
 .chevron-blue-5 {
-    background-color: #a5c6f7;
+    background-color: #77aaff;
 }
 
 /* Price Section */
