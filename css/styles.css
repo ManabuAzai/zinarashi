@@ -1,7 +1,7 @@
 /* Base Styles */
 :root {
     --color-primary: #000000;
-    --color-secondary: #0066CC;
+    --color-secondary: #6d9eeb;
     --color-accent: #FF6600;
     --color-light: #F5F5F5;
     --color-white: #FFFFFF;
@@ -236,7 +236,12 @@ ul {
 }
 
 .problem-icon .icon {
-    font-size: 2.5rem;
+    font-size: 2rem;
+    color: var(--color-secondary);
+}
+
+.problem-icon .icon i {
+    font-size: 2rem;
 }
 
 .problem-item h3 {
@@ -306,7 +311,12 @@ ul {
 }
 
 .service-icon .icon {
-    font-size: 2.5rem;
+    font-size: 2rem;
+    color: var(--color-secondary);
+}
+
+.service-icon .icon i {
+    font-size: 2rem;
 }
 
 .service-item h3 {
@@ -378,23 +388,23 @@ ul {
 }
 
 .chevron-blue-1 {
-    background-color: #0066cc;
+    background-color: #6d9eeb;
 }
 
 .chevron-blue-2 {
-    background-color: #0088cc;
+    background-color: #7ba8ed;
 }
 
 .chevron-blue-3 {
-    background-color: #00aacc;
+    background-color: #89b2ef;
 }
 
 .chevron-blue-4 {
-    background-color: #00cccc;
+    background-color: #97bcf1;
 }
 
 .chevron-blue-5 {
-    background-color: #00dddd;
+    background-color: #a5c6f3;
 }
 
 /* Price Section */
@@ -594,6 +604,13 @@ ul {
 
 .footer-logo .logo {
     margin-right: 15px;
+}
+
+.footer-logo .company-name {
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: var(--color-white);
+    margin: 0;
 }
 
 .footer-links ul {
