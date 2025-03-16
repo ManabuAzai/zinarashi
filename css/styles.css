@@ -1,8 +1,8 @@
 /* Base Styles */
 :root {
     --color-primary: #000000;
-    --color-secondary: #0066CC;
-    --color-accent: #FF6600;
+    --color-secondary: #6d9eeb;
+    --color-accent: #6d9eeb;
     --color-light: #F5F5F5;
     --color-white: #FFFFFF;
     --font-family: 'Noto Sans JP', sans-serif;
@@ -62,7 +62,7 @@ ul {
 
 .cta-button {
     display: inline-block;
-    background-color: #00A651; /* Green color */
+    background-color: var(--color-secondary); /* Changed from green to blue */
     color: var(--color-white);
     padding: 12px 24px;
     border-radius: 4px;
@@ -72,15 +72,15 @@ ul {
 }
 
 .cta-button:hover {
-    background-color: #008C45; /* Darker green for hover */
+    background-color: #5a85d6; /* Darker blue for hover */
     transform: translateY(-2px);
     box-shadow: var(--box-shadow);
 }
 
 /* Header */
 .header {
-    background-color: var(--color-primary);
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+    background-color: var(--color-white);
+    box-shadow: 0 1px 0 rgba(0, 0, 0, 0.1);
     position: fixed;
     top: 0;
     left: 0;
@@ -113,7 +113,7 @@ ul {
 .company-name {
     font-size: 1.2rem;
     font-weight: 700;
-    color: var(--color-white);
+    color: var(--color-primary);
 }
 
 .nav ul {
@@ -125,14 +125,14 @@ ul {
 
 .nav a {
     font-weight: 500;
-    color: var(--color-white);
+    color: var(--color-primary);
     display: flex;
     align-items: center;
     height: 100%;
 }
 
 .nav a:hover {
-    color: #00A651; /* Green color on hover */
+    color: var(--color-secondary); /* Changed from green to blue */
 }
 
 .nav .cta-button {
@@ -148,8 +148,8 @@ ul {
 
 /* Hero Section */
 .hero {
-    background-color: var(--color-primary);
-    color: var(--color-white);
+    background-color: var(--color-white);
+    color: var(--color-primary);
     padding: 150px 0 100px;
     position: relative;
     overflow: hidden;
@@ -162,7 +162,7 @@ ul {
     left: 0;
     width: 100%;
     height: 100px;
-    background-color: var(--color-white);
+    background-color: var(--color-light);
     transform: skewY(-3deg);
     z-index: 1;
 }
@@ -235,8 +235,9 @@ ul {
     box-shadow: var(--box-shadow);
 }
 
-.problem-icon .icon {
-    font-size: 2.5rem;
+.problem-icon i {
+    font-size: 2rem;
+    color: var(--color-secondary);
 }
 
 .problem-item h3 {
@@ -305,8 +306,9 @@ ul {
     margin: 0 auto 20px;
 }
 
-.service-icon .icon {
-    font-size: 2.5rem;
+.service-icon i {
+    font-size: 2rem;
+    color: var(--color-secondary);
 }
 
 .service-item h3 {
@@ -378,23 +380,23 @@ ul {
 }
 
 .chevron-blue-1 {
-    background-color: #0066cc;
+    background-color: #6d9eeb;
 }
 
 .chevron-blue-2 {
-    background-color: #0088cc;
+    background-color: #7ba8ee;
 }
 
 .chevron-blue-3 {
-    background-color: #00aacc;
+    background-color: #89b2f1;
 }
 
 .chevron-blue-4 {
-    background-color: #00cccc;
+    background-color: #97bcf4;
 }
 
 .chevron-blue-5 {
-    background-color: #00dddd;
+    background-color: #a5c6f7;
 }
 
 /* Price Section */
@@ -430,7 +432,7 @@ ul {
 }
 
 .price-header {
-    background-color: var(--color-primary);
+    background-color: var(--color-secondary);
     color: var(--color-white);
     padding: 30px;
     text-align: center;
