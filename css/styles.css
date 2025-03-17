@@ -23,6 +23,7 @@ html {
 body {
     font-family: var(--font-family);
     line-height: 1.6;
+    font-size: 18px;
     color: var(--color-primary);
     background-color: var(--color-white);
 }
@@ -50,7 +51,7 @@ ul {
 }
 
 .section-title {
-    font-size: 2.5rem;
+    font-size: 3rem;
     margin-bottom: 2rem;
     text-align: center;
     position: relative;
@@ -111,7 +112,7 @@ ul {
 }
 
 .company-name {
-    font-size: 1.2rem;
+    font-size: 1.5rem;
     font-weight: 700;
     color: var(--color-white);
 }
@@ -673,7 +674,7 @@ ul {
 }
 
 .footer-logo .company-name {
-    font-size: 1.2rem;
+    font-size: 1.5rem;
     font-weight: 700;
     color: var(--color-white);
     margin: 0;
