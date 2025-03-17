@@ -108,7 +108,7 @@ ul {
     background-size: contain;
     background-position: center;
     background-repeat: no-repeat;
-    margin-right: 10px;
+    margin-right: 5px;
 }
 
 .company-name {
@@ -670,7 +670,7 @@ ul {
 }
 
 .footer-logo .logo {
-    margin-right: 15px;
+    margin-right: 5px;
 }
 
 .footer-logo .company-name {
