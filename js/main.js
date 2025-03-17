@@ -38,26 +38,54 @@ document.addEventListener('DOMContentLoaded', function() {
             });
             
             try {
-                // フォーム内容をSlackに送信せず、メール送信に置き換える
-                // ここではローカルストレージに一時保存する実装例
-                localStorage.setItem('form_submission', JSON.stringify({
-                    name: formDataObj.name,
-                    email: formDataObj.email,
-                    application: formDataObj.application,
-                    employees: formDataObj.employees,
-                    timestamp: new Date().toISOString()
-                }));
+                // 相対パスを使用（同じドメイン上の/api/submit-formを指す）
+                const apiUrl = '/api/submit-form';
+                // Vercelにデプロイされた場合のフォールバックURL
+                const fallbackUrl = 'https://your-vercel-deployment-url.vercel.app/api/submit-form';
                 
-                // 実際のメール送信の代わりにコンソールに出力
-                console.log('フォームデータをローカルに保存しました', formDataObj);
+                console.log('送信先:', apiUrl);
+                console.log('フォームデータ:', formDataObj);
                 
-                // 送信成功メッセージ表示
-                formStatus.innerHTML = '<p class="success">お問い合わせありがとうございます。担当者より連絡いたします。</p>';
-                inquiryForm.reset();
+                let response;
                 
-                // 実際の実装では、ここでEmailJSなどのサービスを使用してメール送信する
-                // 例: EmailJS.send(serviceID, templateID, formDataObj)
+                try {
+                    // 最初に相対パスで試す
+                    response = await fetch(apiUrl, {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json',
+                        },
+                        body: JSON.stringify(formDataObj)
+                    });
+                } catch (firstError) {
+                    console.log('相対パスでの送信に失敗、フォールバックURLを試します:', fallbackUrl);
+                    
+                    // 失敗したらフォールバックURLを試す
+                    response = await fetch(fallbackUrl, {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json',
+                        },
+                        body: JSON.stringify(formDataObj),
+                        mode: 'cors'
+                    });
+                }
                 
+                // レスポンスのステータスをログに出力
+                console.log('レスポンスステータス:', response.status);
+                
+                const result = await response.json();
+                console.log('レスポンスデータ:', result);
+                
+                if (response.ok) {
+                    // 送信成功
+                    formStatus.innerHTML = '<p class="success">お問い合わせありがとうございます。担当者より連絡いたします。</p>';
+                    inquiryForm.reset();
+                } else {
+                    // エラーメッセージの表示
+                    const errorDetails = result.details ? `: ${result.details}` : '';
+                    formStatus.innerHTML = `<p class="error">エラーが発生しました: ${result.error}${errorDetails}</p>`;
+                }
             } catch (error) {
                 // 通信エラー
                 formStatus.innerHTML = '<p class="error">通信エラーが発生しました。時間をおいて再度お試しください。</p>';
