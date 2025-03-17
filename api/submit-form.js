@@ -32,7 +32,7 @@ export default async function handler(req, res) {
             // Slack通知
             const text = `*新しい問い合わせがありました*\n\n*氏名:* ${name}\n*メールアドレス:* ${email}\n*従業員数:* ${employees}人\n*申請内容:* ${application}`;
             
-            const webhook_url = 'https://hooks.slack.com/services/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';
+            const webhook_url = 'https://hooks.slack.com/services/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';
             const slackResponse = await fetch(webhook_url, {
                 method: 'POST',
                 headers: {
