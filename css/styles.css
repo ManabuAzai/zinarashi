@@ -180,8 +180,8 @@ ul {
 }
 
 .hero-logo {
-    width: 300px;
-    height: 300px;
+    width: 500px;
+    height: 500px;
     background-image: url('../images/logo.png');
     background-size: contain;
     background-position: center;
