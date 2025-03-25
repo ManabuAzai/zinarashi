@@ -102,8 +102,8 @@ ul {
 }
 
 .logo {
-    width: 100px;
-    height: 40px;
+    width: 200px;
+    height: 80px;
     background-image: url('../images/ジナラシ.png');
     background-size: contain;
     background-position: center;
@@ -670,6 +670,8 @@ ul {
 }
 
 .footer-logo .logo {
+    width: 200px;
+    height: 80px;
     margin-right: 5px;
 }
 
