@@ -102,13 +102,13 @@ ul {
 }
 
 .logo {
-    width: 40px;
+    width: 100px;
     height: 40px;
-    background-image: url('../images/logo.png');
+    background-image: url('../images/ジナラシ.png');
     background-size: contain;
     background-position: center;
     background-repeat: no-repeat;
-    margin-right: 5px;
+    margin-right: 0;
 }
 
 .company-name {
@@ -181,9 +181,9 @@ ul {
 }
 
 .hero-logo {
-    width: 500px;
-    height: 500px;
-    background-image: url('../images/logo.png');
+    width: 600px;
+    height: 300px;
+    background-image: url('../images/ジナラシ_ロゴ.png');
     background-size: contain;
     background-position: center;
     background-repeat: no-repeat;
