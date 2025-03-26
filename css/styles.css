@@ -702,23 +702,97 @@ ul {
     border-top: 1px solid rgba(255, 255, 255, 0.1);
 }
 
+/* Mobile Menu */
+.mobile-menu-toggle {
+    display: none;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 30px;
+    height: 21px;
+    cursor: pointer;
+    z-index: 1001;
+    position: absolute;
+    right: 20px;
+    top: 20px;
+}
+
+.mobile-menu-toggle span {
+    display: block;
+    height: 3px;
+    width: 100%;
+    background-color: white;
+    border-radius: 3px;
+    transition: all 0.3s ease;
+}
+
+.mobile-menu-toggle.active span:nth-child(1) {
+    transform: rotate(45deg) translate(5px, 6px);
+}
+
+.mobile-menu-toggle.active span:nth-child(2) {
+    opacity: 0;
+}
+
+.mobile-menu-toggle.active span:nth-child(3) {
+    transform: rotate(-45deg) translate(5px, -6px);
+}
+
 /* Responsive Styles */
-@media (max-width: 768px) {
+@media (max-width: 992px) {
+    /* Header adjustments */
+    .mobile-menu-toggle {
+        display: flex;
+    }
+    
+    .header {
+        padding: 10px 0;
+    }
+    
     .header .container {
         flex-direction: column;
+        align-items: flex-start;
     }
     
     .logo-container {
-        margin-bottom: 15px;
+        margin-bottom: 0;
+    }
+    
+    .logo {
+        width: 150px;
+        height: 60px;
+    }
+    
+    .nav {
+        width: 100%;
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.5s ease;
+    }
+    
+    .nav.open {
+        max-height: 300px;
     }
     
     .nav ul {
-        flex-wrap: wrap;
-        justify-content: center;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 15px;
+        padding: 10px 0;
+        height: auto;
     }
     
+    .nav li {
+        width: 100%;
+    }
+    
+    .nav a {
+        display: block;
+        padding: 8px 0;
+    }
+    
+    /* Hero section */
     .hero {
-        padding: 120px 0 80px;
+        padding: 100px 0 60px;
     }
     
     .hero-flex {
@@ -731,33 +805,70 @@ ul {
     }
     
     .hero-logo {
-        width: 200px;
-        height: 200px;
+        width: 100%;
+        max-width: 300px;
+        height: 150px;
+        margin: 0 auto;
     }
     
     .hero h2 {
-        font-size: 2.5rem;
+        font-size: 2.2rem;
     }
     
+    .hero p {
+        font-size: 1rem;
+    }
+    
+    /* Sections */
     .section-title {
         font-size: 2rem;
+        margin-bottom: 1.5rem;
     }
     
-    .timeline::before {
-        left: 30px;
+    .problem, .service, .process, .price, .faq, .contact {
+        padding: 60px 0;
     }
     
-    .timeline-number {
-        width: 40px;
-        height: 40px;
-        font-size: 1.2rem;
-        margin-right: 20px;
+    /* Grid layouts */
+    .problem-grid, .service-grid {
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 20px;
     }
     
+    /* Process section */
+    .chevron-flow {
+        max-width: 100%;
+    }
+    
+    .chevron-step {
+        flex-direction: column;
+        align-items: flex-start;
+        height: auto;
+        margin-bottom: 30px;
+    }
+    
+    .chevron-arrow {
+        width: 100%;
+        max-width: 300px;
+        height: 60px;
+    }
+    
+    .chevron-description {
+        margin-left: 0;
+        margin-top: 15px;
+        padding: 0 10px;
+    }
+    
+    .chevron-arrow:after {
+        display: none;
+    }
+    
+    /* Price section */
     .price-body {
         flex-direction: column;
     }
     
+    /* Footer */
     .footer-content {
         flex-direction: column;
         align-items: center;
@@ -766,23 +877,70 @@ ul {
     
     .footer-links ul {
         justify-content: center;
+        flex-wrap: wrap;
     }
 }
 
-@media (max-width: 480px) {
+@media (max-width: 576px) {
+    body {
+        font-size: 16px;
+    }
+    
+    .container {
+        padding: 0 15px;
+    }
+    
     .hero h2 {
-        font-size: 2rem;
+        font-size: 1.8rem;
     }
     
-    .problem-grid, .service-grid {
-        grid-template-columns: 1fr;
+    .hero p {
+        font-size: 1rem;
     }
     
-    .timeline-content {
-        padding: 15px;
+    .section-title {
+        font-size: 1.7rem;
     }
     
-    .timeline-content h3 {
-        font-size: 1.2rem;
+    .problem-item, .service-item {
+        padding: 20px;
+    }
+    
+    .problem-icon, .service-icon {
+        width: 60px;
+        height: 60px;
+    }
+    
+    .problem-icon .icon i, .service-icon .icon i {
+        font-size: 1.5rem;
+    }
+    
+    .problem-item h3, .service-item h3 {
+        font-size: 1.3rem;
+    }
+    
+    .chevron-content h3 {
+        font-size: 1rem;
+    }
+    
+    .chevron-description {
+        font-size: 0.9rem;
+    }
+    
+    .faq-question h3 {
+        font-size: 1rem;
+    }
+    
+    .price-header h3 {
+        font-size: 1.5rem;
+    }
+    
+    .price-value {
+        font-size: 1.6rem;
+    }
+    
+    .cta-button {
+        padding: 10px 20px;
+        font-size: 0.9rem;
     }
 }

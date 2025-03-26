@@ -1,4 +1,24 @@
 document.addEventListener('DOMContentLoaded', function() {
+    // Mobile Menu Toggle
+    const mobileMenuToggle = document.querySelector('.mobile-menu-toggle');
+    const nav = document.querySelector('.nav');
+    
+    if (mobileMenuToggle) {
+        mobileMenuToggle.addEventListener('click', () => {
+            nav.classList.toggle('open');
+            mobileMenuToggle.classList.toggle('active');
+        });
+        
+        // Close mobile menu when clicking on navigation links
+        const navLinks = document.querySelectorAll('.nav a');
+        navLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                nav.classList.remove('open');
+                mobileMenuToggle.classList.remove('active');
+            });
+        });
+    }
+    
     // FAQ Accordion
     const faqItems = document.querySelectorAll('.faq-item');
     
