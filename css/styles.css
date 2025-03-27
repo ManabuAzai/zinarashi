@@ -151,7 +151,7 @@ ul {
 .hero {
     background-color: var(--color-primary);
     color: var(--color-white);
-    padding: 150px 0 100px;
+    padding: 270px 0 195px; /* Increased padding by 1.5x */
     position: relative;
     overflow: hidden;
 }
@@ -182,8 +182,8 @@ ul {
 
 .hero-logo {
     width: 600px;
-    height: 300px;
-    background-image: url('../images/ジナラシ_ロゴ.png');
+    height: 450px; /* Increased height by 1.5x */
+    background-image: url('../images/first_view.png'); /* Using first_view.png */
     background-size: contain;
     background-position: center;
     background-repeat: no-repeat;
