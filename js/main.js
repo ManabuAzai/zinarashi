@@ -1,91 +1,61 @@
-document.addEventListener('DOMContentLoaded', function() {
-    // Mobile Menu Toggle
+document.addEventListener('DOMContentLoaded', () => {
     const mobileMenuToggle = document.querySelector('.mobile-menu-toggle');
     const nav = document.querySelector('.nav');
-    
-    if (mobileMenuToggle) {
+    const header = document.querySelector('.header'); // Select the header
+
+    if (mobileMenuToggle && nav) {
         mobileMenuToggle.addEventListener('click', () => {
-            nav.classList.toggle('open');
+            nav.classList.toggle('active');
             mobileMenuToggle.classList.toggle('active');
-        });
-        
-        // Close mobile menu when clicking on navigation links
-        const navLinks = document.querySelectorAll('.nav a');
-        navLinks.forEach(link => {
-            link.addEventListener('click', () => {
-                nav.classList.remove('open');
-                mobileMenuToggle.classList.remove('active');
-            });
+
+            // Optional: Add a class to the body to prevent scrolling when menu is open
+            document.body.classList.toggle('no-scroll');
         });
     }
-    
-    // FAQ Accordion
-    const faqItems = document.querySelectorAll('.faq-item');
-    
-    faqItems.forEach(item => {
-        const question = item.querySelector('.faq-question');
-        
-        question.addEventListener('click', () => {
-            // Close all other items
-            faqItems.forEach(otherItem => {
-                if (otherItem !== item && otherItem.classList.contains('active')) {
-                    otherItem.classList.remove('active');
-                }
-            });
-            
-            // Toggle current item
-            item.classList.toggle('active');
-        });
-    });
-    
-    // Google Formへのリダイレクト処理
-    // フォーム送信処理部分は削除
-    
-    // Smooth scrolling for anchor links
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener('click', function(e) {
-            e.preventDefault();
-            
-            const targetId = this.getAttribute('href');
-            if (targetId === '#') return;
-            
-            const targetElement = document.querySelector(targetId);
-            if (targetElement) {
-                const headerHeight = document.querySelector('.header').offsetHeight;
-                const targetPosition = targetElement.getBoundingClientRect().top + window.pageYOffset - headerHeight;
-                
-                window.scrollTo({
-                    top: targetPosition,
-                    behavior: 'smooth'
-                });
+
+    // Add styles for the active mobile menu in CSS
+    // We need to add corresponding CSS rules for .nav.active, .mobile-menu-toggle.active, and body.no-scroll
+
+    // Optional: Close mobile menu when a link is clicked
+    const navLinks = nav.querySelectorAll('a');
+    navLinks.forEach(link => {
+        link.addEventListener('click', () => {
+            if (nav.classList.contains('active')) {
+                nav.classList.remove('active');
+                mobileMenuToggle.classList.remove('active');
+                document.body.classList.remove('no-scroll');
             }
         });
     });
-    
-    // Header scroll effect
-    const header = document.querySelector('.header');
+
+    // Optional: Hide header on scroll down, show on scroll up
     let lastScrollTop = 0;
-    
-    window.addEventListener('scroll', () => {
-        const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-        
-        if (scrollTop > 100) {
-            header.style.padding = '10px 0';
+    window.addEventListener('scroll', function() {
+        let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+        if (scrollTop > lastScrollTop && scrollTop > header.offsetHeight) {
+            // Scroll Down
+            header.style.top = `-${header.offsetHeight}px`;
         } else {
-            header.style.padding = '15px 0';
+            // Scroll Up
+            header.style.top = '0';
         }
-        
-        lastScrollTop = scrollTop;
+        lastScrollTop = scrollTop <= 0 ? 0 : scrollTop; // For Mobile or negative scrolling
+    }, false);
+
+    // Add FAQ toggle functionality later
+    const faqItems = document.querySelectorAll('.faq-item');
+    faqItems.forEach(item => {
+        const question = item.querySelector('.faq-question');
+        const answer = item.querySelector('.faq-answer');
+        const toggle = item.querySelector('.faq-toggle');
+
+        if (question && answer && toggle) {
+            question.addEventListener('click', () => {
+                const isActive = item.classList.toggle('active');
+                answer.style.maxHeight = isActive ? answer.scrollHeight + "px" : null;
+                toggle.textContent = isActive ? '-' : '+';
+            });
+        }
     });
-    
-    // Mobile menu toggle (for future implementation if needed)
-    // const menuToggle = document.querySelector('.menu-toggle');
-    // const nav = document.querySelector('.nav');
-    
-    // if (menuToggle) {
-    //     menuToggle.addEventListener('click', () => {
-    //         nav.classList.toggle('active');
-    //         menuToggle.classList.toggle('active');
-    //     });
-    // }
+
 });
