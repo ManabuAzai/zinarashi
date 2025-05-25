@@ -100,10 +100,10 @@ a {
 /* CTA Button */
 .cta-button {
     display: inline-block;
-    background: var(--pure-white);
-    color: var(--pure-black);
+    background: var(--accent-blue);
+    color: var(--pure-white);
     padding: 14px 32px;
-    border: 2px solid var(--pure-white);
+    border: 2px solid var(--accent-blue);
     font-weight: 600;
     text-align: center;
     transition: var(--transition-smooth);
@@ -114,9 +114,9 @@ a {
 
 .cta-button:hover {
     background: transparent;
-    color: var(--pure-white);
+    color: var(--accent-blue);
     transform: translateY(-2px);
-    box-shadow: 0 5px 15px rgba(255, 255, 255, 0.2);
+    box-shadow: 0 5px 15px rgba(66, 133, 244, 0.3);
 }
 
 /* Header */
@@ -197,14 +197,14 @@ a {
 .nav .cta-button {
     padding: 10px 24px;
     font-size: 0.875rem;
-    background: var(--pure-white);
-    color: var(--pure-black);
-    border-color: var(--pure-white);
+    background: var(--accent-blue);
+    color: var(--pure-white);
+    border-color: var(--accent-blue);
 }
 
 .nav .cta-button:hover {
     background: transparent;
-    color: var(--pure-white);
+    color: var(--accent-blue);
 }
 
 /* Hero Section */
@@ -280,14 +280,14 @@ a {
 }
 
 .hero .cta-button {
-    background: var(--pure-white);
-    color: var(--pure-black);
-    border-color: var(--pure-white);
+    background: var(--accent-blue);
+    color: var(--pure-white);
+    border-color: var(--accent-blue);
 }
 
 .hero .cta-button:hover {
     background: transparent;
-    color: var(--pure-white);
+    color: var(--accent-blue);
 }
 
 /* Problem Section */
@@ -790,8 +790,8 @@ a {
     }
 
     .nav .cta-button {
-        background: var(--pure-white);
-        color: var(--pure-black);
+        background: var(--accent-blue);
+        color: var(--pure-white);
     }
 
     .hero h2 {
